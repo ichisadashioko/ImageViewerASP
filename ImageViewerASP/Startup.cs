@@ -9,16 +9,32 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System.Diagnostics;
 
 namespace ImageViewerASP
 {
     public class Startup
     {
+        public static IConfigurationRoot Configuration { get; private set; }
+        public Startup(IHostEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            Configuration = builder.Build();
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDirectoryBrowser();
+            services.AddMvc(option =>
+            {
+                option.EnableEndpointRouting = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,19 +47,28 @@ namespace ImageViewerASP
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World!");
+            //    });
+            //});
 
 
             app.UseStaticFiles();
 
-            string imageRoot = @"E:\fmd_0.9.158.0_Win64\downloads";
-            string requestPath = "/images";
+            
+
+            string imageRoot = Configuration.GetValue<string>("StaticImages.ImagePath");
+            string requestPath = Configuration.GetValue<string>("StaticImages.RequestPath");
+            Debug.WriteLine($"StaticImages.ImagePath: {imageRoot}");
+            Debug.WriteLine($"StaticImages.RequestPath: {requestPath}");
 
             app.UseStaticFiles(new StaticFileOptions
             {
