@@ -52,23 +52,12 @@ namespace ImageViewerASP
                 routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/", async context =>
-            //    {
-            //        await context.Response.WriteAsync("Hello World!");
-            //    });
-            //});
-
-
             app.UseStaticFiles();
 
-            
-
-            string imageRoot = Configuration.GetValue<string>("StaticImages.ImagePath");
-            string requestPath = Configuration.GetValue<string>("StaticImages.RequestPath");
-            Debug.WriteLine($"StaticImages.ImagePath: {imageRoot}");
-            Debug.WriteLine($"StaticImages.RequestPath: {requestPath}");
+            string imageRoot = Configuration.GetValue<string>("StaticImages:ImagePath");
+            string requestPath = Configuration.GetValue<string>("StaticImages:RequestPath");
+            Debug.WriteLine($"StaticImages:ImagePath: {imageRoot}");
+            Debug.WriteLine($"StaticImages:RequestPath: {requestPath}");
 
             app.UseStaticFiles(new StaticFileOptions
             {
