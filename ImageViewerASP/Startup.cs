@@ -12,6 +12,7 @@ using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
+using ImageViewerASP.Services;
 
 namespace ImageViewerASP
 {
@@ -35,6 +36,11 @@ namespace ImageViewerASP
             {
                 option.EnableEndpointRouting = false;
             });
+
+            // add functionality to inject IOptions<T>
+            services.AddOptions();
+            // add our Config object so it can be injected
+            services.Configure<AppConfig>(Configuration.GetSection("AppConfig"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,10 +60,10 @@ namespace ImageViewerASP
 
             app.UseStaticFiles();
 
-            string imageRoot = Configuration.GetValue<string>("StaticImages:ImagePath");
-            string requestPath = Configuration.GetValue<string>("StaticImages:RequestPath");
-            Debug.WriteLine($"StaticImages:ImagePath: {imageRoot}");
-            Debug.WriteLine($"StaticImages:RequestPath: {requestPath}");
+            string imageRoot = Configuration.GetValue<string>("AppConfig:ImagePath");
+            string requestPath = Configuration.GetValue<string>("AppConfig:RequestPath");
+            Debug.WriteLine($"AppConfig:ImagePath: {imageRoot}");
+            Debug.WriteLine($"AppConfig:RequestPath: {requestPath}");
 
             app.UseStaticFiles(new StaticFileOptions
             {
