@@ -70,6 +70,14 @@ namespace ImageViewerASP
                 FileProvider = new PhysicalFileProvider(imageRoot),
                 RequestPath = requestPath
             });
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Contents")
+                ),
+                RequestPath = "/Contents"
+            });
         }
     }
 }
