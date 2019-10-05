@@ -4,14 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Extensions.Options;
+using ImageViewerASP.Models;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace ImageViewerASP.Services
 {
-    public enum ChildrenFileType
+    public enum DirectoryType
     {
         Empty,
-        Directory,
-        File,
+        AllDirectory,
+        AllFile,
         Mix,
     }
     public class ImageUtils
@@ -21,25 +24,25 @@ namespace ImageViewerASP.Services
         {
             _config = config;
         }
-        protected virtual ChildrenFileType GetChildrenFileType(string root)
+        public static DirectoryType GetDirectoryType(string root)
         {
             int numDirs = Directory.GetDirectories(root).Length;
             int numFiles = Directory.GetFiles(root).Length;
             if (numDirs == 0 && numFiles == 0)
             {
-                return ChildrenFileType.Empty;
+                return DirectoryType.Empty;
             }
             else if (numDirs == 0 && numFiles != 0)
             {
-                return ChildrenFileType.File;
+                return DirectoryType.AllFile;
             }
             else if (numDirs != 0 && numFiles == 0)
             {
-                return ChildrenFileType.Directory;
+                return DirectoryType.AllDirectory;
             }
             else
             {
-                return ChildrenFileType.Mix;
+                return DirectoryType.Mix;
             }
         }
         public virtual IEnumerable<string> GetFolders(string root)
@@ -52,7 +55,12 @@ namespace ImageViewerASP.Services
             return Directory.EnumerateFiles(root).OrderBy(x => x);
         }
 
-        public virtual string MapLocalToWeb(string path)
+        public static string MapLocalToRemote(string path, string imagePath, string requestPath)
+        {
+            return path.Replace(imagePath, requestPath)
+                .Replace('\\', '/');
+        }
+        public virtual string MapLocalToRemote(string path)
         {
             string imagePath = _config.Value.ImagePath;
             string requestPath = _config.Value.RequestPath;
@@ -60,24 +68,100 @@ namespace ImageViewerASP.Services
             return path.Replace(imagePath, requestPath)
                 .Replace('\\', '/');
         }
+        public static string MapRemoteToLocal(string path, string imagePath, string requestPath)
+        {
+            return path.Replace(requestPath, imagePath)
+                .Replace('/', '\\');
+        }
+        public virtual string MapRemoteToLocal(string path)
+        {
+            string imagePath = _config.Value.ImagePath;
+            string requestPath = _config.Value.RequestPath;
+
+            return path.Replace(requestPath, imagePath)
+                .Replace('/', '\\');
+        }
 
         /// <summary>
         /// Find the first image in the `root` directory.
         /// Recursive walk in to the first directory to find the image.
+        /// Return an empty string if there is no image in directory.
         /// </summary>
         /// <param name="root">The directory path in local drive.</param>
         /// <returns></returns>
-        public virtual string GetFirstImageForPreview(string root)
+        public static string GetFirstImageForPreview(string root)
         {
-            var attr = File.GetAttributes(root);
-            if((attr & FileAttributes.Directory) == FileAttributes.Directory)
-            {
+            var dirType = GetDirectoryType(root);
 
-            }
-            else
+            if (dirType == DirectoryType.AllFile || dirType == DirectoryType.Mix)
             {
-                return root;
+                return Directory.EnumerateFiles(root).OrderBy(x => x).First();
             }
+            else if (dirType == DirectoryType.AllDirectory)
+            {
+                // loop through all the children until find an image
+                // as we are not sure the children directory is not empty
+                var children = Directory.EnumerateDirectories(root).OrderBy(x => x);
+                foreach (var child in children)
+                {
+                    var childRetval = GetFirstImageForPreview(child);
+                    if (!String.IsNullOrEmpty(childRetval))
+                    {
+                        return childRetval;
+                    }
+                }
+            }
+            return "";
+        }
+        public virtual IEnumerable<Card> GetCards(string root)
+        {
+            // for logging
+            var methodInfo = MethodBase.GetCurrentMethod();
+            var methodFullName = $"{methodInfo.DeclaringType.FullName}.{methodInfo.Name}";
+
+            List<Card> cards = new List<Card>();
+            IEnumerable<string> dirList = Directory.EnumerateDirectories(root);
+            foreach (var dir in dirList)
+            {
+                var dirType = GetDirectoryType(dir);
+                if (dirType == DirectoryType.Empty)
+                {
+                    Debug.WriteLine($"{methodFullName}: {dir} is empty.");
+                    continue;
+                }
+                else if (dirType == DirectoryType.AllFile)
+                {
+                    var card = new ChapterDirectory
+                    {
+                        BaseImagePath = _config.Value.ImagePath,
+                        RequestPath = _config.Value.RequestPath,
+                        LocalPath = dir,
+                    };
+                    cards.Add(card);
+                }
+                else if (dirType == DirectoryType.AllDirectory)
+                {
+                    var card = new MangaDirectory
+                    {
+                        BaseImagePath = _config.Value.ImagePath,
+                        RequestPath = _config.Value.RequestPath,
+                        LocalPath = dir
+                    };
+                    cards.Add(card);
+                }
+                else
+                {
+                    Debug.WriteLine($"{methodFullName}: {dir} is mixed.");
+                    var card = new ChapterDirectory
+                    {
+                        BaseImagePath = _config.Value.ImagePath,
+                        RequestPath = _config.Value.RequestPath,
+                        LocalPath = dir
+                    };
+                    cards.Add(card);
+                }
+            }
+            return cards;
         }
     }
 }

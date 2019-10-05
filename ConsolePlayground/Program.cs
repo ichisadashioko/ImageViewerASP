@@ -90,8 +90,8 @@ namespace ConsolePlayground
             //{
             //    Console.WriteLine(dirPath.Replace(imagePath, requestPath).Replace('\\', '/'));
             //}
-            //GetFirstImageForPreview(imagePath);
-            RemoveEmptyDirectory(imagePath);
+            GetFirstImageForPreview(imagePath);
+            //RemoveEmptyDirectory(imagePath);
 
             Console.ReadLine();
         }

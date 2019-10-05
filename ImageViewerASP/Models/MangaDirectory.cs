@@ -6,13 +6,8 @@ using System.IO;
 
 namespace ImageViewerASP.Models
 {
-    public class FolderDirectory : Card
+    public class MangaDirectory : Card
     {
-        public IEnumerable<Card> Chapters { get; set; }
-
-        public override string FirstImageSrc()
-        {
-
-        }
+        public IEnumerable<Card> ChildrenCard { get; set; }
     }
 }

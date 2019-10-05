@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas, monospace;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.card {
+    display: inline-block;
+    width: 185px;
+    min-width: 185px;
+    height: 265px;
+    min-height: 265px;
+    position: relative;
+    border: solid 1px #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card p.title {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+}

@@ -7,13 +7,9 @@ namespace ImageViewerASP.Models
 {
     public class ChapterDirectory : Card
     {
-        public IEnumerable<string> GetImages()
-        {
+        //public IEnumerable<string> GetImages()
+        //{
 
-        }
-        public override string FirstImageSrc()
-        {
-            throw new NotImplementedException();
-        }
+        //}
     }
 }
