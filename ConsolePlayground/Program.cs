@@ -4,95 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ConsolePlayground
 {
     class Program
     {
-        public enum ChildrenFileType
+        static void RemoveHashFromPath(string root)
         {
-            Empty,
-            Directory,
-            File,
-            Mix,
-        }
-        public static ChildrenFileType GetChildrenFileType(string root)
-        {
-            int numDirs = Directory.GetDirectories(root).Length;
-            int numFiles = Directory.GetFiles(root).Length;
-            if (numDirs == 0 && numFiles == 0)
+            string fileName = Path.GetFileName(root);
+            if (fileName.Contains("#"))
             {
-                return ChildrenFileType.Empty;
-            }
-            else if (numDirs == 0 && numFiles != 0)
-            {
-                return ChildrenFileType.File;
-            }
-            else if (numDirs != 0 && numFiles == 0)
-            {
-                return ChildrenFileType.Directory;
-            }
-            else
-            {
-                return ChildrenFileType.Mix;
-            }
-        }
+                string newFileName = fileName.Replace("#", "");
+                string newPath = root.Replace(fileName, newFileName);
+                Console.WriteLine(root);
+                Console.WriteLine(newPath);
 
-        public static void RemoveEmptyDirectory(string root)
-        {
-            var attr = File.GetAttributes(root);
-            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
-            {
-                var directoryType = GetChildrenFileType(root);
-                if (directoryType == ChildrenFileType.Empty)
-                {
-                    Console.WriteLine($"{directoryType.ToString()}: {root}");
-                    // careful to check your code before comment out the following line
-                    //Directory.Delete(root);
-                }
-                if (directoryType == ChildrenFileType.Directory || directoryType == ChildrenFileType.Mix)
-                {
-                    var children = Directory.EnumerateDirectories(root);
-                    foreach (var child in children)
-                    {
-                        RemoveEmptyDirectory(child);
-                    }
-                }
+                //Directory.Move(root, newPath);
+                //root = newPath;
             }
-        }
-
-        public static void GetFirstImageForPreview(string root)
-        {
-            var attr = File.GetAttributes(root);
-            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+            IEnumerable<string> dirList = Directory.EnumerateDirectories(root);
+            foreach(var dir in dirList)
             {
-                var directoryType = GetChildrenFileType(root);
-                if (directoryType == ChildrenFileType.Mix)
-                {
-                    Console.WriteLine($"{directoryType.ToString()}: {root}");
-                }
-                if (directoryType == ChildrenFileType.Directory || directoryType == ChildrenFileType.Mix)
-                {
-                    var children = Directory.EnumerateDirectories(root);
-                    foreach (var child in children)
-                    {
-                        GetFirstImageForPreview(child);
-                    }
-                }
+                RemoveHashFromPath(dir);
             }
         }
         static void Main(string[] args)
         {
             string imagePath = @"D:\fmd_0.9.158.0_Win64\downloads";
             string requestPath = "/images";
-            IEnumerable<string> dirList = Directory.EnumerateDirectories(imagePath);
-            foreach (var dirPath in dirList)
-            {
-                Console.WriteLine(dirPath.Replace(imagePath, requestPath).Replace('\\', '/'));
-                Console.WriteLine(Uri.EscapeUriString(dirPath));
-            }
-            //GetFirstImageForPreview(imagePath);
-            //RemoveEmptyDirectory(imagePath);
+            //IEnumerable<string> dirList = Directory.EnumerateDirectories(imagePath);
+            //foreach (var dirPath in dirList)
+            //{
+            //    Console.WriteLine(dirPath.Replace(imagePath, requestPath).Replace('\\', '/'));
+            //    Console.WriteLine(Uri.EscapeUriString(dirPath));
+            //}
+
+            RemoveHashFromPath(imagePath);
 
             Console.ReadLine();
         }
