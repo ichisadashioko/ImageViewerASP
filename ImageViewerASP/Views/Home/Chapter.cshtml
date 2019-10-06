@@ -8,11 +8,11 @@
 
 @if (!String.IsNullOrEmpty(Model.PreviousChapterRequestId))
 {
-    <a href="/Home/Manga/@Model.PreviousChapterRequestId" class="button prev">Previous</a>
+    <a href="/Home/Manga/@Model.PreviousChapterRequestId" class="button prev">&gt;</a>
 }
 @if (!String.IsNullOrEmpty(Model.NextChapterRequestId))
 {
-    <a href="/Home/Manga/@Model.NextChapterRequestId" class="button next">Next</a>
+    <a href="/Home/Manga/@Model.NextChapterRequestId" class="button next">&lt;</a>
 }
 
 <div class="container flex">
