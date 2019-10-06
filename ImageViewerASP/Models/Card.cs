@@ -11,7 +11,7 @@ namespace ImageViewerASP.Models
 {
     public class Card
     {
-        public string LocalPath { get; set; }
+        public virtual string LocalPath { get; set; }
         public string BaseImagePath { get; set; }
         public string RequestPath { get; set; }
 
