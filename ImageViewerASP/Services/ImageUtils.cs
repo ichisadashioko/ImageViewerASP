@@ -55,12 +55,12 @@ namespace ImageViewerASP.Services
             return Directory.EnumerateFiles(root).OrderBy(x => x);
         }
 
-        public static string MapLocalToRemote(string path, string imagePath, string requestPath)
+        public static string MapLocalToRequest(string path, string imagePath, string requestPath)
         {
             return path.Replace(imagePath, requestPath)
                 .Replace('\\', '/');
         }
-        public virtual string MapLocalToRemote(string path)
+        public virtual string MapLocalToRequest(string path)
         {
             string imagePath = _config.Value.ImagePath;
             string requestPath = _config.Value.RequestPath;
@@ -68,12 +68,12 @@ namespace ImageViewerASP.Services
             return path.Replace(imagePath, requestPath)
                 .Replace('\\', '/');
         }
-        public static string MapRemoteToLocal(string path, string imagePath, string requestPath)
+        public static string MapRequestToLocal(string path, string imagePath, string requestPath)
         {
             return path.Replace(requestPath, imagePath)
                 .Replace('/', '\\');
         }
-        public virtual string MapRemoteToLocal(string path)
+        public virtual string MapRequestToLocal(string path)
         {
             string imagePath = _config.Value.ImagePath;
             string requestPath = _config.Value.RequestPath;
@@ -129,30 +129,9 @@ namespace ImageViewerASP.Services
                     Debug.WriteLine($"{methodFullName}: {dir} is empty.");
                     continue;
                 }
-                else if (dirType == DirectoryType.AllFile)
-                {
-                    var card = new ChapterDirectory
-                    {
-                        BaseImagePath = _config.Value.ImagePath,
-                        RequestPath = _config.Value.RequestPath,
-                        LocalPath = dir,
-                    };
-                    cards.Add(card);
-                }
-                else if (dirType == DirectoryType.AllDirectory)
-                {
-                    var card = new MangaDirectory
-                    {
-                        BaseImagePath = _config.Value.ImagePath,
-                        RequestPath = _config.Value.RequestPath,
-                        LocalPath = dir
-                    };
-                    cards.Add(card);
-                }
                 else
                 {
-                    Debug.WriteLine($"{methodFullName}: {dir} is mixed.");
-                    var card = new ChapterDirectory
+                    var card = new Card
                     {
                         BaseImagePath = _config.Value.ImagePath,
                         RequestPath = _config.Value.RequestPath,

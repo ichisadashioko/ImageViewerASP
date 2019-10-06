@@ -7,9 +7,6 @@ namespace ImageViewerASP.Models
 {
     public class ChapterDirectory : Card
     {
-        //public IEnumerable<string> GetImages()
-        //{
-
-        //}
+        public virtual IEnumerable<string> RequestImages { get; set; }
     }
 }

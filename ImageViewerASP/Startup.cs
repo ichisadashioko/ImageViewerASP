@@ -55,7 +55,7 @@ namespace ImageViewerASP
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{path?}");
+                routes.MapRoute("Default", "{controller=Home}/{action=Index}/{requestId?}");
             });
 
             app.UseStaticFiles();

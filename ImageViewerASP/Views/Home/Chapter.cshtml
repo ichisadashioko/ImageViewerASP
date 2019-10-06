@@ -3,5 +3,12 @@
     ViewData["Title"] = "Chapter";
 }
 
-<h1>Chapter</h1>
+<link rel="stylesheet" href="~/Contents/horizontal-scrolling.css" />
+
+<div class="container flex">
+    @foreach (var item in Model.RequestImages)
+    {
+        <img src="@item" />
+    }
+</div>
 

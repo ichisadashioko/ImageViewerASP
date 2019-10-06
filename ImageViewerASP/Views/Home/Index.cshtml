@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
+<link rel="stylesheet" href="~/Contents/image-box.css" />
 <div class="container flex flex-wrap">
     @foreach (var item in Model)
     {
-        <a href="" class="card">
+        <a href="/Home/Manga/@item.RequestId" class="card">
             <img src="@item.PreviewImage" alt="">
             <p class="title">@item.Name</p>
         </a>

@@ -85,12 +85,13 @@ namespace ConsolePlayground
         {
             string imagePath = @"D:\fmd_0.9.158.0_Win64\downloads";
             string requestPath = "/images";
-            //IEnumerable<string> dirList = Directory.EnumerateDirectories(imagePath);
-            //foreach (var dirPath in dirList)
-            //{
-            //    Console.WriteLine(dirPath.Replace(imagePath, requestPath).Replace('\\', '/'));
-            //}
-            GetFirstImageForPreview(imagePath);
+            IEnumerable<string> dirList = Directory.EnumerateDirectories(imagePath);
+            foreach (var dirPath in dirList)
+            {
+                Console.WriteLine(dirPath.Replace(imagePath, requestPath).Replace('\\', '/'));
+                Console.WriteLine(Uri.EscapeUriString(dirPath));
+            }
+            //GetFirstImageForPreview(imagePath);
             //RemoveEmptyDirectory(imagePath);
 
             Console.ReadLine();

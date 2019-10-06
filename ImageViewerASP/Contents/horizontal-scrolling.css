@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas, monospace;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.container.flex {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.container::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+img {
+    display: block;
+    max-height: 100vh;
+    width: auto;
+}

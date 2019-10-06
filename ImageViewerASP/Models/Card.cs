@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.IO;
 using ImageViewerASP.Services;
 using System.Web;
+using System.Text.RegularExpressions;
 
 namespace ImageViewerASP.Models
 {
@@ -39,7 +40,8 @@ namespace ImageViewerASP.Models
         {
             get
             {
-                return HttpUtility.UrlEncode(RelativeRequestPath);
+                //return HttpUtility.UrlEncode(Regex.Replace(RelativeRequestPath, @"^/", ""));
+                return Uri.EscapeDataString(Regex.Replace(RelativeRequestPath, @"^/", ""));
             }
         }
         public string PreviewImage
@@ -47,8 +49,8 @@ namespace ImageViewerASP.Models
             get
             {
                 string imageLocalPath = ImageUtils.GetFirstImageForPreview(LocalPath);
-                string imageRemotePath = ImageUtils.MapLocalToRemote(imageLocalPath, BaseImagePath, RequestPath);
-                return imageRemotePath;
+                string imageRequestPath = ImageUtils.MapLocalToRequest(imageLocalPath, BaseImagePath, RequestPath);
+                return imageRequestPath;
             }
         }
     }
