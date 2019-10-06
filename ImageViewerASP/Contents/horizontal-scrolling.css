@@ -12,9 +12,11 @@ body {
 .flex {
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 
 .container.flex {
+    height: 100vh;
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -26,6 +28,7 @@ body {
 
 img {
     display: block;
+    min-height: 100vh;
     max-height: 100vh;
     width: auto;
 }
