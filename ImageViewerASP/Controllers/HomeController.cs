@@ -42,8 +42,7 @@ namespace ImageViewerASP.Controllers
             {
                 // Get next and previous chapters if exist
                 string parentDir = Directory.GetParent(localPath).FullName;
-                string prevId = "";
-                string nextId = "";
+                ChapterDirectory prevChap = null, nextChap = null;
 
                 var siblingDirs = Directory.GetDirectories(parentDir);
                 int i;
@@ -56,23 +55,21 @@ namespace ImageViewerASP.Controllers
                 }
                 if (i > 0)
                 {
-                    var prevChapter = new ChapterDirectory
+                    prevChap = new ChapterDirectory
                     {
                         BaseImagePath = _config.Value.ImagePath,
                         RequestPath = _config.Value.RequestPath,
                         LocalPath = siblingDirs[i - 1],
                     };
-                    prevId = prevChapter.RequestId;
                 }
                 if (i < (siblingDirs.Length - 1))
                 {
-                    var nextChapter = new ChapterDirectory
+                    nextChap = new ChapterDirectory
                     {
                         BaseImagePath = _config.Value.ImagePath,
                         RequestPath = _config.Value.RequestPath,
                         LocalPath = siblingDirs[i + 1],
                     };
-                    nextId = nextChapter.RequestId;
                 }
 
                 // get all images
@@ -84,8 +81,8 @@ namespace ImageViewerASP.Controllers
                     RequestPath = _config.Value.RequestPath,
                     LocalPath = localPath,
                     RequestImages = images,
-                    PreviousChapterRequestId = prevId,
-                    NextChapterRequestId = nextId,
+                    PreviousChapter = prevChap,
+                    NextChapter = nextChap,
                 };
                 ViewBag.Title = chapter.Name;
                 return View("Chapter", chapter);

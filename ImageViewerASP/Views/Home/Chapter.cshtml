@@ -6,19 +6,19 @@
 
 <link rel="stylesheet" href="~/Contents/horizontal-scrolling.css" />
 
-@if (!String.IsNullOrEmpty(Model.PreviousChapterRequestId))
+@if(Model.PreviousChapter != null)
 {
-    <a href="/Home/Manga/@Model.PreviousChapterRequestId" class="button prev">&gt;</a>
+    <a href="/Home/Manga/@Model.PreviousChapter.RequestId" class="button prev">&gt;</a>
 }
-@if (!String.IsNullOrEmpty(Model.NextChapterRequestId))
+@if (Model.NextChapter != null)
 {
-    <a href="/Home/Manga/@Model.NextChapterRequestId" class="button next">&lt;</a>
+    <a href="/Home/Manga/@Model.NextChapter.RequestId" class="button next">&lt;</a>
 }
 
 <div class="container flex">
     @foreach (var item in Model.RequestImages)
     {
-        <img src="@item" />
+        <img class="lazy" src="" data-src="@item"/>
     }
 </div>
 
