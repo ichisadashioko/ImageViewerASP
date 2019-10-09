@@ -6,19 +6,25 @@
 
 <link rel="stylesheet" href="~/Contents/horizontal-scrolling.css" />
 
-@if(Model.PreviousChapter != null)
+@if (Model.PreviousChapter != null)
 {
-    <a href="/Home/Manga/@Model.PreviousChapter.RequestId" class="button prev">&gt;</a>
+    <a href="/Home/Manga/@Model.PreviousChapter.RequestId" class="button prev">
+        &gt;<br>
+        <img class="preview" src="@Model.PreviousChapter.PreviewImage" />
+    </a>
 }
 @if (Model.NextChapter != null)
 {
-    <a href="/Home/Manga/@Model.NextChapter.RequestId" class="button next">&lt;</a>
+    <a href="/Home/Manga/@Model.NextChapter.RequestId" class="button next">
+        &lt;<br>
+        <img class="preview" src="@Model.NextChapter.PreviewImage" />
+    </a>
 }
 
 <div class="container flex">
     @foreach (var item in Model.RequestImages)
     {
-        <img class="lazy" src="" data-src="@item"/>
+        <img class="lazy chapter-image" src="" data-src="@item" />
     }
 </div>
 

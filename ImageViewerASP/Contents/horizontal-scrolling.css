@@ -26,7 +26,7 @@ body {
     height: 0 !important;
 }
 
-img {
+img.chapter-image {
     display: block;
     min-height: 100vh;
     max-height: 100vh;
@@ -34,6 +34,7 @@ img {
 }
 
 a.button {
+    max-width: 10vw;
     height: 100vh;
     text-decoration: none;
 }
@@ -50,21 +51,31 @@ a.button {
     color: #fff;
 }
 
-.button:hover {
-    opacity: 0.7;
-    background-color: rgba(0, 0, 0, 1);
+    .button:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    .button.prev,
+    .button.next {
+        position: fixed;
+        z-index: 2;
+    }
+
+    .button.prev {
+        right: 0;
+    }
+
+    .button.next {
+        left: 0;
+    }
+
+.preview {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-.button.prev,
-.button.next {
-    position: fixed;
-    z-index: 2;
-}
-
-.button.prev {
-    right: 0;
-}
-
-.button.next {
-    left: 0;
-}
+    .preview:hover {
+        transform: scale(2);
+    }
