@@ -26,6 +26,11 @@ body {
     height: 0 !important;
 }
 
+img.lazy {
+    width: 30vw !important;
+    height: 100vh !important;
+}
+
 img.chapter-image {
     display: block;
     min-height: 100vh;
@@ -51,31 +56,27 @@ a.button {
     color: #fff;
 }
 
-    .button:hover {
-        opacity: 1;
-        background-color: rgba(0, 0, 0, 1);
-    }
+.button:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 1);
+}
 
-    .button.prev,
-    .button.next {
-        position: fixed;
-        z-index: 2;
-    }
+.button.prev,
+.button.next {
+    position: fixed;
+    z-index: 2;
+}
 
-    .button.prev {
-        right: 0;
-    }
+.button.prev {
+    right: 0;
+}
 
-    .button.next {
-        left: 0;
-    }
+.button.next {
+    left: 0;
+}
 
 .preview {
     display: block;
     max-width: 100%;
     height: auto;
 }
-
-    .preview:hover {
-        transform: scale(2);
-    }
