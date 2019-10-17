@@ -45,7 +45,7 @@ a.button {
 }
 
 .button {
-    opacity: 0.05;
+    opacity: 0;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;

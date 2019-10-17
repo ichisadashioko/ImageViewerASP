@@ -2,6 +2,12 @@
  * Credit: https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
  */
 
+/**
+ * How to use:
+ * - Add class 'lazy' to the `img` tag
+ * - Set image src at `data-src` attribute
+ */
+
 document.addEventListener('DOMContentLoaded', function () {
     var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
 
