@@ -8,7 +8,7 @@
     @foreach (var item in Model)
     {
         <a href="/Home/Manga/@item.RequestId" class="card">
-            <img src="@item.PreviewImage" alt="">
+            <img class="lazy" data-src="@item.PreviewImage" alt="">
             <p class="title">@item.Name</p>
         </a>
     }
