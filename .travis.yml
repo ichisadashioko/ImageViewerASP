@@ -1,5 +1,6 @@
 language: csharp
 dist: bionic
+mono: none
 solution: ImageViewerASP.sln
 dotnet: 3.0.0
 
