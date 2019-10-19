@@ -10,7 +10,7 @@ export class ChapterImage extends React.Component<{ imagePath: string }> {
     }
     render() {
         return (
-            <img src={this.props.imagePath} className="chapter-img" />
+            <img src={this.props.imagePath} className="chapter-image" />
         );
     }
 }
@@ -18,7 +18,7 @@ export class ChapterImage extends React.Component<{ imagePath: string }> {
 export class ChapterView extends React.Component<{ chapter: ChapterProps }>{
     render() {
         return (
-            <div>
+            <div className="container flex">
                 {this.props.chapter.ImagePaths.map((item, index) => (
                     <ChapterImage imagePath={item} key={index} />
                 ))}
