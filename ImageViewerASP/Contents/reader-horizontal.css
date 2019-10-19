@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas, monospace;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.container.flex {
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+
+/* Hide the scrollbar */
+
+.container::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+
+/* 
+I set width and height equal to view port 
+to prevent image from stacking together 
+and will appear in the view port and 
+then trigger the image loading process. 
+*/
+
+img.lazy {
+    width: 25vw !important;
+    height: 100vh !important;
+}
+
+img.chapter-image {
+    display: block;
+    min-height: 100vh;
+    max-height: 100vh;
+    width: auto;
+}

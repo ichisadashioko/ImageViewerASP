@@ -1,32 +1,10 @@
 ﻿@model ImageViewerASP.Models.ChapterDirectory
-
 @{
     Layout = "_Layout";
 }
 
-<link rel="stylesheet" href="~/Contents/horizontal-scrolling.css" />
+<link href="~/Contents/reader-horizontal.css" rel="stylesheet" />
 
-@if (Model.PreviousChapter != null)
-{
-    <a href="/Home/Manga/@Model.PreviousChapter.RequestId" class="button prev">
-        &gt;<br>
-        <img class="preview" src="@Model.PreviousChapter.PreviewImage" />
-    </a>
-}
-@if (Model.NextChapter != null)
-{
-    <a href="/Home/Manga/@Model.NextChapter.RequestId" class="button next">
-        &lt;<br>
-        <img class="preview" src="@Model.NextChapter.PreviewImage" />
-    </a>
-}
+<div id="app"></div>
 
-<div class="container flex">
-    @for (int i = 0; i < Model.RequestImages.Count(); i++)
-    {
-        var item = Model.RequestImages.ElementAt(i);
-        var itemId = $"img{i}";
-        <img id="@itemId" class="lazy chapter-image" src="~/Contents/img-placeholder-dark-vertical.jpg" data-src="@item" />
-    }
-</div>
-
+<script src="~/Scripts/dist/reader.js"></script>
