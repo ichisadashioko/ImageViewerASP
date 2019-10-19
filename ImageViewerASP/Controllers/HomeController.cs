@@ -102,6 +102,12 @@ namespace ImageViewerASP.Controllers
                 ViewBag.Title = chapter.Name;
                 return View("Chapter", chapter);
             }
+
+            if (ControllerContext.HttpContext.Request.ContentType == "application/json")
+            {
+                return Json(cards);
+            }
+
             ViewBag.Title = Path.GetFileName(localPath);
             return View("Index", cards);
         }

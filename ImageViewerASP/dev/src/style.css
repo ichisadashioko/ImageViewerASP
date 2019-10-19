@@ -1,0 +1,9 @@
+.lazy {
+    /* I set width and height equal to view port to prevent image from stacking together and will appear in the view port then trigger the image loading process. */
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.chapter_img {
+    min-height: 100vh;
+}
