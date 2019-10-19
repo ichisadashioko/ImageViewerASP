@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel dev/src/index.html"
+    "dev": "npx webpack"
   },
   "keywords": [],
   "author": "",
