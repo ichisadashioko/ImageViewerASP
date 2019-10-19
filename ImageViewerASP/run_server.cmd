@@ -1,1 +1,1 @@
-dotnet run --urls=http://*:5000/
+dotnet run watch --urls=http://*:5000/
