@@ -7,12 +7,12 @@ import * as Chapter from './Chapter';
 // create a directory `001` in `ImageViewerASP/dist` and push some images in it.
 let data = {
     ImagePaths: [
-        "001/001.jpg",
-        "001/002.jpg",
-        "001/003.jpg",
-        "001/004.jpg",
-        "001/005.jpg",
-        "001/029.jpg",
+        "dist/001/001.jpg",
+        "dist/001/002.jpg",
+        "dist/001/003.jpg",
+        "dist/001/004.jpg",
+        "dist/001/005.jpg",
+        "dist/001/029.jpg",
     ],
 }
 

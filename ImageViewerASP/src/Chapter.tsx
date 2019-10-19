@@ -5,9 +5,6 @@ export type ChapterProps = {
 }
 
 export class ChapterImage extends React.Component<{ imagePath: string }> {
-    constructor(props) {
-        super(props)
-    }
     render() {
         return (
             <img src={this.props.imagePath} className="chapter-image" />
