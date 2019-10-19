@@ -22,9 +22,11 @@
 }
 
 <div class="container flex">
-    @foreach (var item in Model.RequestImages)
+    @for (int i = 0; i < Model.RequestImages.Count(); i++)
     {
-        <img class="lazy chapter-image" src="~/Contents/img-placeholder-dark-vertical.jpg" data-src="@item" />
+        var item = Model.RequestImages.ElementAt(i);
+        var itemId = $"img{i}";
+        <img id="@itemId" class="lazy chapter-image" src="~/Contents/img-placeholder-dark-vertical.jpg" data-src="@item" />
     }
 </div>
 
