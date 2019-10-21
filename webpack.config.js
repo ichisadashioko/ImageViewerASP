@@ -3,9 +3,13 @@ module.exports = {
     watch: true,
 
     entry: {
-        index: './src/Index.tsx',
-        reader: './src/Reader.tsx',
-        app: './src/App.tsx',
+        index: './ImageViewerASP/Scripts/src/Index.tsx',
+        reader: './ImageViewerASP/Scripts/src/Reader.tsx',
+        app: './ImageViewerASP/Scripts/src/App.tsx',
+    },
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/ImageViewerASP/Scripts/dist'
     },
 
     // Enable sourcemaps for debugging webpack's output.

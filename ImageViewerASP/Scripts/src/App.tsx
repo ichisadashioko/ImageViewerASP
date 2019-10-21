@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import * as Chapter from './Chapter';
 
 // fake data
-// create a directory `001` in `ImageViewerASP/dist` and push some images in it.
+// create a directory `001` in `../dist` and push some images in it.
 let data = {
     ImagePaths: [
         "dist/001/001.jpg",
