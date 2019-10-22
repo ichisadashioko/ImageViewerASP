@@ -12,7 +12,7 @@ let data = {
         "dist/001/003.jpg",
         "dist/001/004.jpg",
         "dist/001/005.jpg",
-        "dist/001/029.jpg",
+        // "dist/001/029.jpg",
     ],
 }
 
