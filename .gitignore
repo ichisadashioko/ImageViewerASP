@@ -3,3 +3,6 @@ bin
 obj
 *.user
 *.swp
+node_modules
+dist
+.cache
