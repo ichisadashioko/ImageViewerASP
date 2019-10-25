@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { render } from 'react-dom'
-import { TitlebarGridList } from './TitlebarGridList'
-import { CardProps } from './Card'
+import * as React from 'react';
+import { render } from 'react-dom';
+import { TitlebarGridList } from './TitlebarGridList';
+import { CardProps } from './Card';
 
 class Index extends React.Component<{}, { children: CardProps[] }> {
     componentDidMount() {
