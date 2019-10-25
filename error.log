@@ -1,0 +1,292 @@
+Hash: f1ae6a4270c5c85d3a9f
+Version: webpack 4.41.2
+Time: 7380ms
+Built at: 10/24/2019 10:04:26 PM
+        Asset      Size  Chunks                   Chunk Names
+       app.js  1.04 MiB     app  [emitted]        app
+   app.js.map  1.21 MiB     app  [emitted] [dev]  app
+     index.js  1.05 MiB   index  [emitted]        index
+ index.js.map  1.22 MiB   index  [emitted] [dev]  index
+    reader.js  3.87 KiB  reader  [emitted]        reader
+reader.js.map  3.55 KiB  reader  [emitted] [dev]  reader
+Entrypoint index = index.js index.js.map
+Entrypoint reader = reader.js reader.js.map
+Entrypoint app = app.js app.js.map
+[./ImageViewerASP/Scripts/src/App.tsx] 994 bytes {app} [built]
+[./ImageViewerASP/Scripts/src/Chapter.tsx] 1.85 KiB {app} [built]
+[./ImageViewerASP/Scripts/src/Index.tsx] 1.23 KiB {index} [built]
+[./ImageViewerASP/Scripts/src/Reader.tsx] 0 bytes {reader} [built]
+[./ImageViewerASP/Scripts/src/TitlebarGridList.tsx] 2.5 KiB {index} [built]
+    + 14 hidden modules
+
+ERROR in ./node_modules/@material-ui/core/esm/GridList/index.js
+Module not found: Error: Can't resolve './GridList' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\GridList'
+ @ ./node_modules/@material-ui/core/esm/GridList/index.js 1:0-37 1:0-37
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/GridListTile/index.js
+Module not found: Error: Can't resolve './GridListTile' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\GridListTile'
+ @ ./node_modules/@material-ui/core/esm/GridListTile/index.js 1:0-41 1:0-41
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/GridListTileBar/index.js
+Module not found: Error: Can't resolve './GridListTileBar' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\GridListTileBar'
+ @ ./node_modules/@material-ui/core/esm/GridListTileBar/index.js 1:0-44 1:0-44
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/IconButton/index.js
+Module not found: Error: Can't resolve './IconButton' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\IconButton'
+ @ ./node_modules/@material-ui/core/esm/IconButton/index.js 1:0-39 1:0-39
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/ListSubheader/index.js
+Module not found: Error: Can't resolve './ListSubheader' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\ListSubheader'
+ @ ./node_modules/@material-ui/core/esm/ListSubheader/index.js 1:0-42 1:0-42
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './ServerStyleSheets' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 25:0-67 25:0-67
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './StylesProvider' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 27:0-61 27:0-61
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './ThemeProvider' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 28:0-59 28:0-59
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './chainPropTypes' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 6:0-61 6:0-61
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './colorManipulator' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 1:0-35 1:0-35
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './createGenerateClassName' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 19:0-79 19:0-79
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './createMuiTheme' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 2:0-61 2:0-61
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './createStyles' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 3:0-57 3:0-57
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './createStyles' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 20:0-57 20:0-57
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './elementAcceptingRef' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 7:0-71 7:0-71
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './elementTypeAcceptingRef' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 8:0-79 8:0-79
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './exactProp' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 9:0-51 9:0-51
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './getDisplayName' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 10:0-61 10:0-61
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './getThemeProps' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 21:0-59 21:0-59
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './jssPreset' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 22:0-51 22:0-51
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './makeStyles' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 4:0-53 4:0-53
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './makeStyles' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 23:0-53 23:0-53
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './mergeClasses' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 24:0-57 24:0-57
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './ponyfillGlobal' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 11:0-61 11:0-61
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/utils/esm/index.js
+Module not found: Error: Can't resolve './refType' in 'E:\ImageViewerASP\node_modules\@material-ui\utils\esm'
+ @ ./node_modules/@material-ui/utils/esm/index.js 12:0-47 12:0-47
+ @ ./node_modules/@material-ui/styles/esm/index.js
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './responsiveFontSizes' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 5:0-71 5:0-71
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './styled' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 6:0-45 6:0-45
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './styled' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 26:0-45 26:0-45
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './transitions' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 7:0-30 7:0-30
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './useTheme' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 8:0-49 8:0-49
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './useTheme' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 29:0-49 29:0-49
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './withStyles' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 9:0-53 9:0-53
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './withStyles' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 30:0-53 30:0-53
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/core/esm/styles/index.js
+Module not found: Error: Can't resolve './withTheme' in 'E:\ImageViewerASP\node_modules\@material-ui\core\esm\styles'
+ @ ./node_modules/@material-ui/core/esm/styles/index.js 10:0-51 10:0-51
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/@material-ui/styles/esm/index.js
+Module not found: Error: Can't resolve './withTheme' in 'E:\ImageViewerASP\node_modules\@material-ui\styles\esm'
+ @ ./node_modules/@material-ui/styles/esm/index.js 31:0-69 31:0-69 31:0-69
+ @ ./node_modules/@material-ui/core/esm/styles/index.js
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx
+Module not found: Error: Can't resolve '@material-ui/icons/Info' in 'E:\ImageViewerASP\ImageViewerASP\Scripts\src'
+ @ ./ImageViewerASP/Scripts/src/TitlebarGridList.tsx 20:31-65
+ @ ./ImageViewerASP/Scripts/src/Index.tsx
+
+ERROR in ./node_modules/react-dom/cjs/react-dom.development.js
+Module not found: Error: Can't resolve 'object-assign' in 'E:\ImageViewerASP\node_modules\react-dom\cjs'
+ @ ./node_modules/react-dom/cjs/react-dom.development.js 19:14-38
+ @ ./node_modules/react-dom/index.js
+ @ ./ImageViewerASP/Scripts/src/App.tsx
+
+ERROR in ./node_modules/react/cjs/react.development.js
+Module not found: Error: Can't resolve 'object-assign' in 'E:\ImageViewerASP\node_modules\react\cjs'
+ @ ./node_modules/react/cjs/react.development.js 18:14-38
+ @ ./node_modules/react/index.js
+ @ ./ImageViewerASP/Scripts/src/App.tsx
+
+ERROR in ./node_modules/react-dom/cjs/react-dom.development.js
+Module not found: Error: Can't resolve 'prop-types/checkPropTypes' in 'E:\ImageViewerASP\node_modules\react-dom\cjs'
+ @ ./node_modules/react-dom/cjs/react-dom.development.js 21:21-57
+ @ ./node_modules/react-dom/index.js
+ @ ./ImageViewerASP/Scripts/src/App.tsx
+
+ERROR in ./node_modules/react/cjs/react.development.js
+Module not found: Error: Can't resolve 'prop-types/checkPropTypes' in 'E:\ImageViewerASP\node_modules\react\cjs'
+ @ ./node_modules/react/cjs/react.development.js 19:21-57
+ @ ./node_modules/react/index.js
+ @ ./ImageViewerASP/Scripts/src/App.tsx
+
+ERROR in ./node_modules/react-dom/cjs/react-dom.development.js
+Module not found: Error: Can't resolve 'scheduler/tracing' in 'E:\ImageViewerASP\node_modules\react-dom\cjs'
+ @ ./node_modules/react-dom/cjs/react-dom.development.js 22:14-42
+ @ ./node_modules/react-dom/index.js
+ @ ./ImageViewerASP/Scripts/src/App.tsx

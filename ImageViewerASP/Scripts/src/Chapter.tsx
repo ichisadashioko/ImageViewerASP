@@ -23,10 +23,6 @@ type ChapterViewState = {
     currentIndex: number;
 }
 
-const scrollToRef = (ref: any) => {
-    console.log(ref)
-    window.scrollTo(0, ref.current.offsetTop)
-}
 
 export class ChapterView extends React.Component<ChapterViewProps, ChapterViewState>{
     state = {
@@ -38,19 +34,22 @@ export class ChapterView extends React.Component<ChapterViewProps, ChapterViewSt
         // console.log(typeof props)
         // console.log(props)
     }
+    scrollToRef = (ref: any) => {
+        console.log(ref)
+        window.scrollTo(0, ref.current.offsetTop)
+    }
     scrollIntoView(id: any) {
         console.log(id)
         console.log(`typeof(id): ${typeof (id)}`)
-        scrollToRef(id)
+        this.scrollToRef(id)
     }
     handleKeyDown(event: any) {
         let evt = event as KeyboardEvent;
         console.log(evt.key)
         if (evt.key === 'ArrowLeft') {
             this.scrollIntoView(this.state.currentIndex)
-            let that = this;
             this.setState({
-                that.state.
+                currentIndex: this.state.currentIndex++,
             })
         }
     }

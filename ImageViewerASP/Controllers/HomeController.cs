@@ -26,6 +26,11 @@ namespace ImageViewerASP.Controllers
         {
             string renderPath = _config.Value.ImagePath;
             IEnumerable<Card> cards = _imageUtils.GetCards(renderPath);
+
+            if (ControllerContext.HttpContext.Request.ContentType == "application/json")
+            {
+                return Json(cards);
+            }
             ViewBag.Title = "Index";
             return View(cards);
         }
@@ -48,7 +53,7 @@ namespace ImageViewerASP.Controllers
                 int i;
                 for (i = 0; i < siblingDirs.Length; i++)
                 {
-                    if (String.Compare(siblingDirs[i], localPath) == 0)
+                    if (string.Compare(siblingDirs[i], localPath) == 0)
                     {
                         break;
                     }
@@ -99,7 +104,13 @@ namespace ImageViewerASP.Controllers
                     LocalPath = localPath,
                     RequestImages = images,
                 };
+
+                if (ControllerContext.HttpContext.Request.ContentType == "application/json")
+                {
+                    return Json(chapter);
+                }
                 ViewBag.Title = chapter.Name;
+
                 return View("Chapter", chapter);
             }
 

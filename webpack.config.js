@@ -1,6 +1,8 @@
+var webpack = require('webpack')
+var path = require('path')
+
 module.exports = {
     mode: 'development',
-    watch: true,
 
     entry: {
         index: './ImageViewerASP/Scripts/src/Index.tsx',
@@ -28,6 +30,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'ts-loader'
+                    },
+                    {
+                        loader: 'babel-loader',
                     }
                 ]
             },
@@ -35,7 +40,8 @@ module.exports = {
             {
                 enforce: 'pre',
                 test: /\.js$/,
-                loader: 'source-map-loader'
+                exclude: /node_modules/,
+                loader: 'source-map-loader',
             }
         ]
     },
@@ -44,8 +50,8 @@ module.exports = {
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
-    }
+    // externals: {
+    //     'react': 'React',
+    //     'react-dom': 'ReactDOM'
+    // }
 };
