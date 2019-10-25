@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -8,33 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import { CardProps } from './Card';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden',
-            backgroundColor: theme.palette.background.paper,
-        },
-        gridList: {
-            width: 500,
-            height: 450,
-        },
-        icon: {
-            color: 'rgba(255, 255, 255, 0.54)',
-        },
-    }),
-);
-
-
-const classes = useStyles({});
-
 export class TitlebarGridList extends React.Component<{ children: CardProps[] }> {
     render() {
         return (
-            <div className={classes.root}>
-                <GridList cellHeight={180} className={classes.gridList}>
+            <div className='root'>
+                <GridList cellHeight={180} className='gridList'>
                     <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                         <ListSubheader component="div">December</ListSubheader>
                     </GridListTile>
@@ -44,7 +21,7 @@ export class TitlebarGridList extends React.Component<{ children: CardProps[] }>
                             <GridListTileBar
                                 title={card.name}
                                 actionIcon={
-                                    <IconButton aria-label={`info about ${card.name}`} className={classes.icon}>
+                                    <IconButton aria-label={`info about ${card.name}`} className='icon'>
                                         <InfoIcon />
                                     </IconButton>
                                 }

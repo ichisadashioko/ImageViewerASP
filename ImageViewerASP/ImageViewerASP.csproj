@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Scripts\react-lib\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
 

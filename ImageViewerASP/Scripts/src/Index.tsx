@@ -4,6 +4,9 @@ import { TitlebarGridList } from './TitlebarGridList';
 import { CardProps } from './Card';
 
 class Index extends React.Component<{}, { children: CardProps[] }> {
+    state = {
+        children: [],
+    };
     componentDidMount() {
         let url = window.location.href;
         console.log(`url: ${url}`);
