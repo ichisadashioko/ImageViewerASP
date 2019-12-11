@@ -10,22 +10,12 @@ import { CardProps } from './Card';
 export class TitlebarGridList extends React.Component<{ children: CardProps[] }> {
     render() {
         return (
-            <div className='root'>
-                <GridList cellHeight={180} className='gridList'>
-                    <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                        <ListSubheader component="div">December</ListSubheader>
-                    </GridListTile>
+            <div className='root container'>
+                <GridList>
                     {this.props.children.map((card: CardProps, index: number) => (
                         <GridListTile key={index.toString()}>
                             <img src={card.previewImage} />
-                            <GridListTileBar
-                                title={card.name}
-                                actionIcon={
-                                    <IconButton aria-label={`info about ${card.name}`} className='icon'>
-                                        <InfoIcon />
-                                    </IconButton>
-                                }
-                            />
+                            <GridListTileBar title={card.name} />
                         </GridListTile>
                     ))}
                 </GridList>

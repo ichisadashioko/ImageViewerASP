@@ -10,26 +10,15 @@ const extensions = [
 export default {
     input: './ImageViewerASP/Scripts/src/Index.tsx',
     output: [
-        // {
-        //     name: 'index',
-        //     file: './ImageViewerASP/Scripts/dist/index.esm.js',
-        //     format: 'esm',
-        // },
         {
             name: 'index',
             file: './ImageViewerASP/Scripts/dist/index.umd.js',
             format: 'umd',
+            globals: {
+                'react': 'React',
+                'react-dom': 'ReactDOM',
+            },
         },
-        // {
-        //     name: 'index',
-        //     file: './ImageViewerASP/Scripts/dist/index.iife.js',
-        //     format: 'iife',
-        // },
-        // {
-        //     name: 'index',
-        //     file: './ImageViewerASP/Scripts/dist/index.cjs.js',
-        //     format: 'cjs',
-        // },
     ],
     external: [
         'react',
