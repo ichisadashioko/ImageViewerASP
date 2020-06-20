@@ -65,6 +65,13 @@ namespace ImageViewerASP
             Debug.WriteLine($"AppConfig:ImagePath: {imageRoot}");
             Debug.WriteLine($"AppConfig:RequestPath: {requestPath}");
 
+            var isImageRootExisted = Directory.Exists(imageRoot);
+
+            if (!isImageRootExisted)
+            {
+                throw new ApplicationException($"{imageRoot} does not exist!");
+            }
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(imageRoot),
@@ -84,6 +91,7 @@ namespace ImageViewerASP
                 ),
                 RequestPath = "/Contents"
             });
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(

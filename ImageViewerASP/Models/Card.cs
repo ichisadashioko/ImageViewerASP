@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +22,7 @@ namespace ImageViewerASP.Models
                 return Path.GetFileName(LocalPath);
             }
         }
+
         public virtual string RelativeLocalPath
         {
             get
@@ -29,6 +30,7 @@ namespace ImageViewerASP.Models
                 return LocalPath.Replace(BaseImagePath, "");
             }
         }
+
         public virtual string RelativeRequestPath
         {
             get
@@ -36,6 +38,7 @@ namespace ImageViewerASP.Models
                 return RelativeLocalPath.Replace('\\', '/');
             }
         }
+
         public virtual string RequestId
         {
             get
@@ -44,6 +47,7 @@ namespace ImageViewerASP.Models
                 return Uri.EscapeDataString(Regex.Replace(RelativeRequestPath, @"^/", ""));
             }
         }
+
         public string PreviewImage
         {
             get

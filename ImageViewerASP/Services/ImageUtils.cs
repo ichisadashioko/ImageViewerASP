@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +17,7 @@ namespace ImageViewerASP.Services
         AllFile,
         Mix,
     }
+
     public class ImageUtils
     {
         private readonly IOptions<AppConfig> _config;
@@ -60,6 +61,7 @@ namespace ImageViewerASP.Services
             return path.Replace(imagePath, requestPath)
                 .Replace('\\', '/');
         }
+
         public virtual string MapLocalToRequest(string path)
         {
             string imagePath = _config.Value.ImagePath;
@@ -68,6 +70,7 @@ namespace ImageViewerASP.Services
             return path.Replace(imagePath, requestPath)
                 .Replace('\\', '/');
         }
+
         public static string MapRequestToLocal(string path, string imagePath, string requestPath)
         {
             return path.Replace(requestPath, imagePath)
@@ -111,8 +114,10 @@ namespace ImageViewerASP.Services
                     }
                 }
             }
+
             return "";
         }
+
         public virtual IEnumerable<Card> GetCards(string root)
         {
             // for logging
@@ -137,9 +142,11 @@ namespace ImageViewerASP.Services
                         RequestPath = _config.Value.RequestPath,
                         LocalPath = dir
                     };
+
                     cards.Add(card);
                 }
             }
+
             return cards;
         }
     }
