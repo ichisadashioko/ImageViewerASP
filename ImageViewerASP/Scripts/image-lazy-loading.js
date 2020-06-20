@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     lazyImage.src = lazyImage.dataset.src;
                     lazyImage.classList.remove('lazy');
                     lazyImageObserver.unobserve(lazyImage);
-                    console.log(`Loading ${lazyImage.src}`);
+                    // console.log(`Loading ${lazyImage.src}`);
                 }
             });
         });

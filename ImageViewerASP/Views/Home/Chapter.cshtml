@@ -21,10 +21,11 @@
     </a>
 }
 
-<div class="container flex">
+<div id="manga-container" tabindex="1" class="container flex">
     @foreach (var item in Model.RequestImages)
     {
         <img class="lazy chapter-image" src="~/Contents/img-placeholder-dark-vertical.jpg" data-src="@item" />
     }
 </div>
 
+<script src="~/Scripts/keyboard-navigation.js"></script>
