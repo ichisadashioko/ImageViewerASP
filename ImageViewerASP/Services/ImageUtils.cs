@@ -25,15 +25,43 @@ namespace ImageViewerASP.Services
         {
             _config = config;
         }
+
+        public static bool DoesDirectoryContainFiles(string path)
+        {
+            var numFiles = Directory.GetFiles(path).Length;
+
+            if (numFiles > 0)
+            {
+                return true;
+            }
+
+            var numDirs = Directory.GetDirectories(path).Length;
+
+            if (numDirs > 0)
+            {
+                foreach (var childDir in Directory.EnumerateDirectories(path))
+                {
+                    if (DoesDirectoryContainFiles(childDir))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public static DirectoryType GetDirectoryType(string root)
         {
-            int numDirs = Directory.GetDirectories(root).Length;
-            int numFiles = Directory.GetFiles(root).Length;
-            if (numDirs == 0 && numFiles == 0)
+            if (!DoesDirectoryContainFiles(root))
             {
                 return DirectoryType.Empty;
             }
-            else if (numDirs == 0 && numFiles != 0)
+
+            var numDirs = Directory.GetDirectories(root).Length;
+            var numFiles = Directory.GetFiles(root).Length;
+
+            if (numDirs == 0 && numFiles != 0)
             {
                 return DirectoryType.AllFile;
             }

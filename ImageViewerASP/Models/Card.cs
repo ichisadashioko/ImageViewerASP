@@ -35,7 +35,7 @@ namespace ImageViewerASP.Models
         {
             get
             {
-                return RelativeLocalPath.Replace('\\', '/');
+                return RelativeLocalPath.Replace(Path.DirectorySeparatorChar, '/');
             }
         }
 

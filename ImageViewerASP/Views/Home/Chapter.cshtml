@@ -1,8 +1,6 @@
-@model ImageViewerASP.Models.ChapterDirectory
+﻿@model ImageViewerASP.Models.ChapterDirectory
 
-@{
-    Layout = "_Layout";
-}
+@{ Layout = "_Layout"; }
 
 <link rel="stylesheet" href="~/Contents/horizontal-scrolling.css" />
 
@@ -24,7 +22,14 @@
 <div id="manga-container" tabindex="1" class="container flex">
     @foreach (var item in Model.RequestImages)
     {
-        <img class="lazy chapter-image" src="~/Contents/img-placeholder-dark-vertical.jpg" data-src="@item" />
+        <div>
+            <img 
+                 class="chapter-image lazy" 
+                 src="~/Contents/img-placeholder-dark-vertical.jpg" 
+                 data-src="@item"
+                 title="@item"
+            />
+        </div>
     }
 </div>
 
